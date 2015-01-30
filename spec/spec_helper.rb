@@ -17,6 +17,11 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+RSpec.configure do |c|
+  c.expose_current_running_example_as :example
+end
+
+
 RSpec.configure do |config|
   # ## Mock Framework
   #
@@ -44,6 +49,7 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
